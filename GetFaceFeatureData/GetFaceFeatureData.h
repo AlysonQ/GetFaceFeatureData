@@ -7,7 +7,12 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <CoreImage/CoreImage.h>
+#import <ImageIO/ImageIO.h>
+#import <UIKit/UIKit.h>
 
 @interface GetFaceFeatureData : NSObject
-
++(NSArray<NSNumber *> *)LoadImageandGetFaceFeature:(UIImage*)image;
++(NSString*)transformToString:(NSData*)data;
++ (NSString*)transformToDecimalWithString:(NSString*)string;
 @end

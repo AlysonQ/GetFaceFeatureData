@@ -7,7 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		E9B39BE120EC7C11009BEE7E /* GetFaceFeatureData.m in Sources */ = {isa = PBXBuildFile; fileRef = E9B39BE020EC7C11009BEE7E /* GetFaceFeatureData.m */; };
+		E93E0F5820EE02E60064A4B1 /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E93E0F5720EE02E60064A4B1 /* Accelerate.framework */; };
+		E9B39BE120EC7C11009BEE7E /* GetFaceFeatureData.mm in Sources */ = {isa = PBXBuildFile; fileRef = E9B39BE020EC7C11009BEE7E /* GetFaceFeatureData.mm */; };
 		E9B39BE220EC7C11009BEE7E /* GetFaceFeatureData.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = E9B39BDF20EC7C11009BEE7E /* GetFaceFeatureData.h */; };
 /* End PBXBuildFile section */
 
@@ -25,9 +26,11 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		E93E0F5720EE02E60064A4B1 /* Accelerate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accelerate.framework; path = System/Library/Frameworks/Accelerate.framework; sourceTree = SDKROOT; };
 		E9B39BDC20EC7C11009BEE7E /* libGetFaceFeatureData.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libGetFaceFeatureData.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		E9B39BDF20EC7C11009BEE7E /* GetFaceFeatureData.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GetFaceFeatureData.h; sourceTree = "<group>"; };
-		E9B39BE020EC7C11009BEE7E /* GetFaceFeatureData.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GetFaceFeatureData.m; sourceTree = "<group>"; };
+		E9B39BE020EC7C11009BEE7E /* GetFaceFeatureData.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = GetFaceFeatureData.mm; sourceTree = "<group>"; };
+		E9CD39E9210031B10010EEE0 /* tensorflow_utils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = tensorflow_utils.h; path = ../../../alyson_ios_test_code/simple/tensorflow_utils.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -35,17 +38,27 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E93E0F5820EE02E60064A4B1 /* Accelerate.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		E93E0F5620EE02E60064A4B1 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				E93E0F5720EE02E60064A4B1 /* Accelerate.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		E9B39BD320EC7C11009BEE7E = {
 			isa = PBXGroup;
 			children = (
 				E9B39BDE20EC7C11009BEE7E /* GetFaceFeatureData */,
 				E9B39BDD20EC7C11009BEE7E /* Products */,
+				E93E0F5620EE02E60064A4B1 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -61,7 +74,8 @@
 			isa = PBXGroup;
 			children = (
 				E9B39BDF20EC7C11009BEE7E /* GetFaceFeatureData.h */,
-				E9B39BE020EC7C11009BEE7E /* GetFaceFeatureData.m */,
+				E9CD39E9210031B10010EEE0 /* tensorflow_utils.h */,
+				E9B39BE020EC7C11009BEE7E /* GetFaceFeatureData.mm */,
 			);
 			path = GetFaceFeatureData;
 			sourceTree = "<group>";
@@ -122,7 +136,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E9B39BE120EC7C11009BEE7E /* GetFaceFeatureData.m in Sources */,
+				E9B39BE120EC7C11009BEE7E /* GetFaceFeatureData.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -244,10 +258,38 @@
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = C9EM397574;
-				OTHER_LDFLAGS = "-ObjC";
+				ENABLE_BITCODE = NO;
+				HEADER_SEARCH_PATHS = (
+					"/Users/qoo/Documents/\\!TensorFlowBackup/tensorflow",
+					"/Users/qoo/Documents/\\!TensorFlowBackup/tensorflow/tensorflow/contrib/makefile/downloads",
+					"/Users/qoo/Documents/\\!TensorFlowBackup/tensorflow/tensorflow/contrib/makefile/downloads/eigen",
+					"/Users/qoo/Documents/\\!TensorFlowBackup/tensorflow/tensorflow/contrib/makefile/downloads/protobuf/src",
+					"/Users/qoo/Documents/\\!TensorFlowBackup/tensorflow/tensorflow/contrib/makefile/gen/proto",
+					"/Users/qoo/Documents/\\!TensorFlowBackup/tensorflow/tensorflow/contrib/makefile/downloads/nsync/public",
+					"-force_load",
+				);
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LIBRARY_SEARCH_PATHS = (
+					"-force_load",
+					"/Users/qoo/Documents/\\!TensorFlowBackup/tensorflow/tensorflow/contrib/makefile/gen/lib",
+					"/Users/qoo/Documents/\\!TensorFlowBackup/tensorflow/tensorflow/core/framework",
+					"$(PROJECT_DIR)/data",
+				);
+				OTHER_LDFLAGS = (
+					"-ObjC",
+					"/Users/qoo/Documents/\\!TensorFlowBackup/tensorflow/tensorflow/contrib/makefile/gen/protobuf_ios/lib/libprotobuf-lite.a",
+					"/Users/qoo/Documents/\\!TensorFlowBackup/tensorflow/tensorflow/contrib/makefile/gen/protobuf_ios/lib/libprotobuf.a",
+					"-force_load",
+					"/Users/qoo/Documents/\\!TensorFlowBackup/tensorflow/tensorflow/contrib/makefile/gen/lib/libtensorflow-core.a",
+					"/Users/qoo/Documents/\\!TensorFlowBackup/tensorflow/tensorflow/contrib/makefile/downloads/nsync/builds/arm64.ios.c++11/nsync.a",
+					"/Users/qoo/Documents/\\!TensorFlowBackup/tensorflow/tensorflow/contrib/makefile/gen/lib/ios_ARM64/libtensorflow-core-arm64.a",
+					"/Users/qoo/Documents/\\!TensorFlowBackup/tensorflow/tensorflow/contrib/makefile/downloads/nsync/builds/default.macos.c++11/nsync.a",
+					"/Users/qoo/Documents/\\!TensorFlowBackup/tensorflow/tensorflow/contrib/makefile/gen/lib/ios_ARMV7S/libtensorflow-core-armv7s.a",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = "1,2";
+				VALID_ARCHS = "arm64 amv7s";
 			};
 			name = Debug;
 		};
@@ -256,10 +298,38 @@
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = C9EM397574;
-				OTHER_LDFLAGS = "-ObjC";
+				ENABLE_BITCODE = NO;
+				HEADER_SEARCH_PATHS = (
+					"/Users/qoo/Documents/\\!TensorFlowBackup/tensorflow",
+					"/Users/qoo/Documents/\\!TensorFlowBackup/tensorflow/tensorflow/contrib/makefile/downloads",
+					"/Users/qoo/Documents/\\!TensorFlowBackup/tensorflow/tensorflow/contrib/makefile/downloads/eigen",
+					"/Users/qoo/Documents/\\!TensorFlowBackup/tensorflow/tensorflow/contrib/makefile/downloads/protobuf/src",
+					"/Users/qoo/Documents/\\!TensorFlowBackup/tensorflow/tensorflow/contrib/makefile/gen/proto",
+					"/Users/qoo/Documents/\\!TensorFlowBackup/tensorflow/tensorflow/contrib/makefile/downloads/nsync/public",
+					"-force_load",
+				);
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LIBRARY_SEARCH_PATHS = (
+					"-force_load",
+					"/Users/qoo/Documents/\\!TensorFlowBackup/tensorflow/tensorflow/contrib/makefile/gen/lib",
+					"/Users/qoo/Documents/\\!TensorFlowBackup/tensorflow/tensorflow/core/framework",
+					"$(PROJECT_DIR)/data",
+				);
+				OTHER_LDFLAGS = (
+					"-ObjC",
+					"/Users/qoo/Documents/\\!TensorFlowBackup/tensorflow/tensorflow/contrib/makefile/gen/protobuf_ios/lib/libprotobuf-lite.a",
+					"/Users/qoo/Documents/\\!TensorFlowBackup/tensorflow/tensorflow/contrib/makefile/gen/protobuf_ios/lib/libprotobuf.a",
+					"-force_load",
+					"/Users/qoo/Documents/\\!TensorFlowBackup/tensorflow/tensorflow/contrib/makefile/gen/lib/libtensorflow-core.a",
+					"/Users/qoo/Documents/\\!TensorFlowBackup/tensorflow/tensorflow/contrib/makefile/downloads/nsync/builds/arm64.ios.c++11/nsync.a",
+					"/Users/qoo/Documents/\\!TensorFlowBackup/tensorflow/tensorflow/contrib/makefile/gen/lib/ios_ARM64/libtensorflow-core-arm64.a",
+					"/Users/qoo/Documents/\\!TensorFlowBackup/tensorflow/tensorflow/contrib/makefile/downloads/nsync/builds/default.macos.c++11/nsync.a",
+					"/Users/qoo/Documents/\\!TensorFlowBackup/tensorflow/tensorflow/contrib/makefile/gen/lib/ios_ARMV7S/libtensorflow-core-armv7s.a",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = "1,2";
+				VALID_ARCHS = "arm64 amv7s";
 			};
 			name = Release;
 		};
